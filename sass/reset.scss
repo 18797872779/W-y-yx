@@ -52,7 +52,8 @@
      vertical-align: middle
  }
  
- input {
+ input,
+ button {
      /* 清除输入框获取焦点默认的框 */
      outline: none;
  }
