@@ -1,98 +1,144 @@
-// 变量 $+变量名
-$w:400px;
-$h:200px;
-$c:red;
-$len:50%*10; // 500%
-/* 标题样式 */
-h1{
-  width: $w;
-  height: $h;
-  color: $c;
-  background-color: #ccc;
+// // 变量 $+变量名
+// $w:400px;
+// $h:200px;
+// $c:red;
+// $len:50%*10; // 500%
+// /* 标题样式 */
+// h1{
+//   width: $w;
+//   height: $h;
+//   color: $c;
+//   background-color: #ccc;
+// }
+// // sass中的注释有两种
+// // 1. // sass有的注释，不会被编译到css文件中
+// // /* xxx */ 会被编译到css文件中
+// // 嵌套语法
+// .box{
+//   width: $w;
+//   background-color: lightblue;
+//   h2{
+//     font-size: 30px;
+//     color: blue;
+//   }
+//   .show{
+//     width: 300px;
+//     height: 100px;
+//     span{
+//       color: red;
+//     }
+//     p{
+//       color: yellow;
+//     }
+//   }
+// }
+// // & 指向父选择器
+// a{
+//   color: blue;
+//   &:hover{
+//     color: red;
+//   }
+// }
+// .content{
+//   width: 500px;
+//   &-title{
+//     color: red;
+//   }
+//   &-main{
+//     color: blue;
+//   }
+// }
+// // @import 引入外部样式
+// @import 'header.scss';
+// // @mixin 混合器
+// @mixin nostyle {
+//   list-style: none;
+//   li{
+//     padding: 0;
+//     color: blue;
+//   }
+// }
+// .list{
+//   width: 500px;
+//   @include nostyle;
+// }
+// // 混合器传参
+// @mixin common($w,$h,$c) {
+//   width: $w;
+//   height: $h;
+//   color: $c;
+// }
+// .box1{
+//   background-color: #ccc;
+//   @include common(500px,200px,red);
+// }
+// .box2{
+//   padding: 10px;
+//   @include common(300px,100px,blue);
+// }
+// // 继承
+// .box3{
+//   padding: 20px;
+//   margin: 10px;
+//   font-size: 20px;
+// }
+// .box4{
+//   width: 500px;
+//   background: pink;
+//   @extend .box3;
+// }
+.concent {
+    width: 1090px;
+    margin: 0 auto;
 }
 
-// sass中的注释有两种
-// 1. // sass有的注释，不会被编译到css文件中
-// /* xxx */ 会被编译到css文件中
-
-// 嵌套语法
-.box{
-  width: $w;
-  background-color: lightblue;
-  h2{
-    font-size: 30px;
-    color: blue;
-  }
-  .show{
-    width: 300px;
-    height: 100px;
-    span{
-      color: red;
+.wy_top {
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    background-color: #333333;
+    a {
+        font-size: 12px;
     }
-    p{
-      color: yellow;
+    .top {
+        @extend .concent;
+        .top_notice {
+            padding: 0 5px;
+            float: left;
+            height: 36px;
+            a {
+                color: #cc9756;
+                text-decoration: underline;
+            }
+        }
+        .top_nav {
+            width: 470px;
+            height: 36px;
+            float: right;
+            li {
+                float: left;
+                padding: 0 5px;
+                a {
+                    color: #cccccc;
+                }
+            }
+        }
     }
-  }
 }
 
-// & 指向父选择器
-a{
-  color: blue;
-  &:hover{
-    color: red;
-  }
+.wy_header {
+    @extend .concent;
+    height: 141px;
+    overflow: hidden;
+    .log {
+        display: block;
+        width: 210px;
+        height: 51px;
+        margin-top: 29px;
+        background: url(../img/icont.jpg) 0px -300px no-repeat;
+        background-size: 100%;
+        h1 {
+            display: none;
+        }
+    }
 }
-.content{
-  width: 500px;
-  &-title{
-    color: red;
-  }
-  &-main{
-    color: blue;
-  }
-}
-
-// @import 引入外部样式
-@import 'header.scss';
-
-// @mixin 混合器
-@mixin nostyle {
-  list-style: none;
-  li{
-    padding: 0;
-    color: blue;
-  }
-}
-.list{
-  width: 500px;
-  @include nostyle;
-}
-
-// 混合器传参
-@mixin common($w,$h,$c) {
-  width: $w;
-  height: $h;
-  color: $c;
-}
-.box1{
-  background-color: #ccc;
-  @include common(500px,200px,red);
-}
-.box2{
-  padding: 10px;
-  @include common(300px,100px,blue);
-}
-
-// 继承
-.box3{
-  padding: 20px;
-  margin: 10px;
-  font-size: 20px;
-}
-.box4{
-  width: 500px;
-  background: pink;
-  @extend .box3;
-}
-
-
