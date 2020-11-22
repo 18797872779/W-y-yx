@@ -92,6 +92,14 @@
     margin: 0 auto;
 }
 
+.noborder {
+    border: none;
+}
+
+.xiashow {
+    display: none;
+}
+
 .wy_top {
     width: 100%;
     height: 36px;
@@ -116,18 +124,93 @@
             }
         }
         .top_nav {
-            width: 470px;
             height: 36px;
             float: right;
             li {
                 float: left;
                 padding: 0 5px;
+                position: relative;
+                cursor: pointer;
                 a {
                     color: #cccccc;
+                    .iphone {
+                        float: left;
+                        margin: 14px 6px 0 0;
+                        width: 7px;
+                        height: 11px;
+                        background: url(../img/icon1.png) 0px 0px no-repeat;
+                    }
+                    .xia {
+                        width: 11px;
+                        height: 5px;
+                        float: right;
+                        margin-top: 17px;
+                        margin-left: 5px;
+                        background: url(../img/icon1.png) 0px -690px no-repeat;
+                        transform: rotate(180deg);
+                    }
+                }
+                a:hover {
+                    color: rgb(255, 255, 255);
+                }
+                .xiashow1 {
+                    @extend .xiashow;
+                    z-index: 66;
+                    background-color: #fff;
+                    position: absolute;
+                    top: 36px;
+                    left: -50px;
+                    padding: 10px 12px;
+                    padding-bottom: 5px;
+                    text-align: center;
+                    border: solid 1px rgb(221, 221, 221);
+                    p {
+                        margin-top: 4px;
+                        height: 20px;
+                        font-size: 12px;
+                        line-height: 20px;
+                        color: rgb(197, 182, 151);
+                    }
+                }
+                .shop {
+                    padding: 2px 13px;
+                    text-align: center;
+                    border: solid 1px rgb(221, 221, 221);
+                    z-index: 66;
+                    width: 56px;
+                    background-color: #fff;
+                    position: absolute;
+                    top: 36px;
+                    left: -8px;
+                    @extend .xiashow;
+                    .noborder {
+                        border: none;
+                    }
+                    a {
+                        display: block;
+                        padding: 1px 0;
+                        border-bottom: 1px solid rgb(221, 221, 221);
+                        color: rgb(177, 174, 174);
+                        font-size: 12px;
+                    }
+                    a:hover {
+                        color: rgb(197, 182, 151);
+                    }
+                }
+                .xiashow1::after,
+                .shop::after {
+                    content: "";
+                    width: 10px;
+                    height: 6px;
+                    position: absolute;
+                    top: -5px;
+                    left: 50%;
+                    margin-left: -5px;
+                    background: url(../img/icon1.png) -1px -706px no-repeat;
                 }
             }
-            li:hover a {
-                color: rgb(255, 255, 255);
+            li:hover .xiashow {
+                display: block;
             }
         }
     }
@@ -136,7 +219,7 @@
 .wy_header {
     @extend .concent;
     height: 146px;
-    overflow: hidden;
+    // overflow: hidden;
     .header_top {
         height: 80px;
         .log {
@@ -245,21 +328,294 @@
         }
     }
     .nav_header {
+        position: relative;
         margin-top: 36px;
         display: flex;
         justify-content: space-between;
         @extend .concent;
         .nav_show {
-            color: #cc9756;
             border-bottom: 3px solid #cc9756;
         }
         li {
             box-sizing: border-box;
+            padding-bottom: 6px;
             a {
                 font-size: 12px;
                 color: #000000;
                 font-weight: 600;
-                padding-bottom: 7px;
+            }
+            .nav_xia {
+                width: 1150px;
+                display: flex;
+                justify-content: space-between;
+                padding: 8px 25px;
+                padding-bottom: 18px;
+                position: absolute;
+                top: 30px;
+                left: -55px;
+                z-index: 66;
+                border: 1px solid rgb(229, 229, 229);
+                background-color: #fff;
+                display: none;
+                dl {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    overflow: hidden;
+                    dt {
+                        width: 125px;
+                        padding: 8px 0;
+                        font-size: 16px;
+                        color: rgb(51, 51, 51);
+                        font-weight: 600;
+                        border-bottom: 1px solid rgb(221, 221, 221);
+                    }
+                    dd {
+                        margin-top: 18px;
+                        img {
+                            width: 20px;
+                            height: 38px;
+                            margin-right: 20px;
+                        }
+                        a {
+                            color: rgb(83, 82, 82);
+                            font-size: 12px;
+                            font-weight: 400;
+                        }
+                    }
+                }
+            }
+        }
+        li:hover {
+            border-bottom: 3px solid #cc9756;
+        }
+        li:hover a {
+            color: #cc9756;
+        }
+        li:hover .nav_xia {
+            display: flex;
+        }
+    }
+}
+
+.comchange {
+    text-align: center;
+    line-height: 50px;
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -8px;
+        margin-left: -15px;
+        display: block;
+        height: 15px;
+        width: 24px;
+        background: url(../img/icon2.png) 0px -299px no-repeat;
+    }
+}
+
+.wy_banner {
+    width: 100%;
+    height: 420px;
+    text-align: center;
+    position: relative;
+    img {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+    .prev {
+        @extend .comchange;
+        left: 295px;
+        i {
+            transform: rotate(-90deg);
+        }
+    }
+    .next {
+        @extend .comchange;
+        right: 295px;
+        i {
+            transform: rotate(90deg);
+            margin-left: -10px;
+        }
+    }
+    .change {
+        width: 160px;
+        position: absolute;
+        left: 50%;
+        bottom: 14px;
+        transform: translate(-50%);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .li_show {
+            width: 7px;
+            height: 7px;
+            background-color: #a7936e;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+        }
+        li {
+            float: left;
+            width: 6px;
+            height: 6px;
+            background-color: #ffffff;
+            border: solid 1px #d6cec4;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    }
+}
+
+.wy_goods {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    .new {
+        height: 540px;
+        width: 100%;
+        position: relative;
+        background-color: #fff;
+        .prev {
+            @extend .comchange;
+            left: 315px;
+            background-color: #e2c199;
+            i {
+                transform: rotate(-90deg);
+            }
+        }
+        .next {
+            @extend .comchange;
+            right: 315px;
+            background-color: #e2c199;
+            i {
+                transform: rotate(90deg);
+                margin-left: -10px;
+            }
+        }
+        .newGoods {
+            @extend .concent;
+            .new_top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .top_left {
+                    width: 265px;
+                    height: 78px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    a {
+                        color: #000;
+                        font-weight: 700;
+                        font-size: 26px;
+                        margin-top: 22px;
+                    }
+                    h4 {
+                        font-size: 13px;
+                        font-weight: 400;
+                        color: #000000;
+                        margin-top: 34px;
+                        margin-right: 22px;
+                    }
+                }
+                .top_right {
+                    margin-top: 34px;
+                    a {
+                        font-size: 13px;
+                        color: #000;
+                    }
+                }
+            }
+            .goods {
+                display: flex;
+                @extend .concent;
+                justify-content: space-between;
+                li {
+                    width: 265px;
+                    height: 360px;
+                    .img {
+                        width: 265px;
+                        height: 265px;
+                        text-align: center;
+                        margin-bottom: 26px;
+                        background-color: #f4f4f4;
+                        img {
+                            vertical-align: middle;
+                        }
+                    }
+                    .news {
+                        height: 70px;
+                        width: 265px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        align-items: center;
+                        a {
+                            text-align: center;
+                            width: 162px;
+                            color: #333333;
+                            font-weight: 700;
+                        }
+                        span {
+                            color: #d4282d;
+                        }
+                    }
+                }
+                li:hover {
+                    background-color: rgb(244, 240, 234);
+                }
+                li:hover .little {
+                    display: none;
+                }
+                li:hover .xiashow {
+                    display: block;
+                }
+            }
+        }
+    }
+    .propular {
+        width: 738px;
+        width: 100%;
+        background-color: #f4f0ea;
+        .pro_Goods {
+            @extend .concent;
+            .pro_top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .top_left {
+                    width: 340px;
+                    height: 108px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    a {
+                        color: #000;
+                        font-weight: 700;
+                        font-size: 26px;
+                        margin-top: 22px;
+                    }
+                    .pro_tab {
+                        width: 195px;
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                }
+                .top_right {
+                    margin-top: 34px;
+                    a {
+                        font-size: 13px;
+                        color: #000;
+                    }
+                }
             }
         }
     }
