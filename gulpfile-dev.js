@@ -15,6 +15,14 @@ task('img', async() => {
         .pipe(load.connect.reload())
 })
 
+
+// 处理data
+task('data', async() => {
+    src('./data/**/*.*')
+        .pipe(dest('./dist/data'))
+        .pipe(load.connect.reload())
+})
+
 // 处理JS
 task('script', async() => {
     src('./js/*.js')
@@ -55,4 +63,4 @@ task('connect', async() => {
     })
 })
 
-task('dev', series('delDist', 'img', 'html', 'script', 'sass', 'connect', 'watch'))
+task('dev', series('delDist', 'img', 'data', 'html', 'script', 'sass', 'connect', 'watch'))

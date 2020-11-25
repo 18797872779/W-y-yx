@@ -1,95 +1,12 @@
-// // 变量 $+变量名
-// $w:400px;
-// $h:200px;
-// $c:red;
-// $len:50%*10; // 500%
-// /* 标题样式 */
-// h1{
-//   width: $w;
-//   height: $h;
-//   color: $c;
-//   background-color: #ccc;
-// }
-// // sass中的注释有两种
-// // 1. // sass有的注释，不会被编译到css文件中
-// // /* xxx */ 会被编译到css文件中
-// // 嵌套语法
-// .box{
-//   width: $w;
-//   background-color: lightblue;
-//   h2{
-//     font-size: 30px;
-//     color: blue;
-//   }
-//   .show{
-//     width: 300px;
-//     height: 100px;
-//     span{
-//       color: red;
-//     }
-//     p{
-//       color: yellow;
-//     }
-//   }
-// }
-// // & 指向父选择器
-// a{
-//   color: blue;
-//   &:hover{
-//     color: red;
-//   }
-// }
-// .content{
-//   width: 500px;
-//   &-title{
-//     color: red;
-//   }
-//   &-main{
-//     color: blue;
-//   }
-// }
-// // @import 引入外部样式
-// @import 'header.scss';
-// // @mixin 混合器
-// @mixin nostyle {
-//   list-style: none;
-//   li{
-//     padding: 0;
-//     color: blue;
-//   }
-// }
-// .list{
-//   width: 500px;
-//   @include nostyle;
-// }
-// // 混合器传参
-// @mixin common($w,$h,$c) {
-//   width: $w;
-//   height: $h;
-//   color: $c;
-// }
-// .box1{
-//   background-color: #ccc;
-//   @include common(500px,200px,red);
-// }
-// .box2{
-//   padding: 10px;
-//   @include common(300px,100px,blue);
-// }
-// // 继承
-// .box3{
-//   padding: 20px;
-//   margin: 10px;
-//   font-size: 20px;
-// }
-// .box4{
-//   width: 500px;
-//   background: pink;
-//   @extend .box3;
-// }
+//头部
 .concent {
     width: 1090px;
     margin: 0 auto;
+}
+
+.head {
+    border-bottom: 1px solid #e7e6eb;
+    background-color: #fff;
 }
 
 .noborder {
@@ -188,6 +105,63 @@
             width: 24px;
             height: 24px;
             background: url(../img/icon1.png) 0 -238px no-repeat;
+        }
+    }
+}
+
+.wy_left_nav {
+    position: absolute;
+    top: 580px;
+    left: 240px;
+    width: 108px;
+    height: 370px;
+    border: 1px solid #e2ded6;
+    border-radius: 4px;
+    z-index: 999898;
+    background-color: #fff;
+    dl {
+        text-align: center;
+    }
+    .dl_top {
+        width: 108px;
+        height: 37px;
+        text-align: center;
+        background-image: url(../img/left_nav/hot.webp);
+        dt {
+            width: 108px;
+            color: #bb3343;
+            font-weight: 700;
+            font-size: 16px;
+            height: 37px;
+            line-height: 37px;
+            border-bottom: solid 1px #e2ded6;
+        }
+    }
+    .dl_bot {
+        padding: 0 9px;
+        dd {
+            height: 36px;
+            border-bottom: 1px solid #e2ded6;
+            cursor: pointer;
+            // line-height: 36px;
+            img {
+                margin-top: 2px;
+                width: 30px;
+                height: 30px;
+                float: left;
+            }
+            p {
+                margin-left: 7px;
+                text-align: left;
+                width: 36px;
+                height: 26px;
+                font-size: 12px;
+                color: #333333;
+                float: left;
+            }
+            p:hover {
+                color: rgb(187, 51, 67);
+            }
         }
     }
 }
@@ -456,7 +430,6 @@
             background-color: #fff;
             display: none;
             dl {
-                // margin-left: 20px;
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
@@ -493,690 +466,6 @@
     }
     li:hover .nav_xia {
         display: flex;
-    }
-}
-
-.comchange {
-    text-align: center;
-    line-height: 50px;
-    position: absolute;
-    top: 50%;
-    margin-top: -25px;
-    width: 50px;
-    height: 50px;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    cursor: pointer;
-    i {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-top: -8px;
-        margin-left: -15px;
-        display: block;
-        height: 15px;
-        width: 24px;
-        background: url(../img/icon2.png) 0px -299px no-repeat;
-    }
-}
-
-.wy_banner {
-    width: 100%;
-    height: 420px;
-    position: relative;
-    .swiper-button-prev {
-        @extend .comchange;
-        left: 295px;
-        i {
-            transform: rotate(-90deg);
-        }
-    }
-    .swiper-button-next {
-        @extend .comchange;
-        right: 295px;
-        i {
-            transform: rotate(90deg);
-            margin-left: -10px;
-        }
-    }
-}
-
-// .wy_banner {
-//     width: 100%;
-//     height: 420px;
-//     text-align: center;
-//     position: relative;
-//     img {
-//         width: 100%;
-//         height: 100%;
-//         cursor: pointer;
-//     }
-//     .swiper-button-prev {
-//         @extend .comchange;
-//         left: 295px;
-//         i {
-//             transform: rotate(-90deg);
-//         }
-//     }
-//     .swiper-button-next {
-//         @extend .comchange;
-//         right: 295px;
-//         i {
-//             transform: rotate(90deg);
-//             margin-left: -10px;
-//         }
-//     }
-//     .change {
-//         width: 160px;
-//         position: absolute;
-//         left: 50%;
-//         bottom: 14px;
-//         transform: translate(-50%);
-//         display: flex;
-//         justify-content: space-around;
-//         align-items: center;
-//         .li_show {
-//             width: 7px;
-//             height: 7px;
-//             background-color: #a7936e;
-//             border: 4px solid rgba(255, 255, 255, 0.3);
-//         }
-//         li {
-//             float: left;
-//             width: 6px;
-//             height: 6px;
-//             background-color: #ffffff;
-//             border: solid 1px #d6cec4;
-//             border-radius: 50%;
-//             cursor: pointer;
-//         }
-//     }
-// }
-.wy_left_nav {
-    position: absolute;
-    top: 30px;
-    left: 240px;
-    width: 108px;
-    height: 370px;
-    border: 1px solid #e2ded6;
-    border-radius: 4px;
-    z-index: 999898;
-    background-color: #fff;
-    dl {
-        text-align: center;
-    }
-    .dl_top {
-        width: 108px;
-        height: 37px;
-        text-align: center;
-        background-image: url(../img/left_nav/hot.webp);
-        dt {
-            width: 108px;
-            color: #bb3343;
-            font-weight: 700;
-            font-size: 16px;
-            height: 37px;
-            line-height: 37px;
-            border-bottom: solid 1px #e2ded6;
-        }
-    }
-    .dl_bot {
-        padding: 0 9px;
-        dd {
-            height: 36px;
-            border-bottom: 1px solid #e2ded6;
-            cursor: pointer;
-            // line-height: 36px;
-            img {
-                margin-top: 2px;
-                width: 30px;
-                height: 30px;
-                float: left;
-            }
-            p {
-                margin-left: 7px;
-                text-align: left;
-                width: 36px;
-                height: 26px;
-                font-size: 12px;
-                color: #333333;
-                float: left;
-            }
-            p:hover {
-                color: rgb(187, 51, 67);
-            }
-        }
-    }
-}
-
-.wy_goods {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    .new {
-        height: 540px;
-        width: 100%;
-        position: relative;
-        background-color: #fff;
-        .prev {
-            @extend .comchange;
-            left: 315px;
-            background-color: #e2c199;
-            i {
-                transform: rotate(-90deg);
-            }
-        }
-        .next {
-            @extend .comchange;
-            right: 315px;
-            background-color: #e2c199;
-            i {
-                transform: rotate(90deg);
-                margin-left: -10px;
-            }
-        }
-        .newGoods {
-            @extend .concent;
-            .new_top {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                .top_left {
-                    width: 265px;
-                    height: 78px;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    a {
-                        color: #000;
-                        font-weight: 700;
-                        font-size: 26px;
-                        margin-top: 22px;
-                    }
-                    a:hover {
-                        @extend .changtoyellow;
-                    }
-                    h4 {
-                        font-size: 13px;
-                        font-weight: 400;
-                        color: #000000;
-                        margin-top: 34px;
-                        margin-right: 22px;
-                    }
-                }
-                .top_right {
-                    margin-top: 34px;
-                    a {
-                        font-size: 13px;
-                        color: #000;
-                    }
-                    a:hover {
-                        @extend .changtoyellow;
-                    }
-                }
-            }
-            .Goods_Lunbo {
-                @extend .concent;
-                height: 360px;
-                position: relative;
-                overflow: hidden;
-                .Goods_lunbo {
-                    @extend .concent;
-                    height: 360px;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    overflow: hidden;
-                    .goods_lunbo {
-                        width: 6000px;
-                        height: 360px;
-                        overflow: hidden;
-                        .goods {
-                            float: left;
-                            display: flex;
-                            @extend .concent;
-                            height: 360px;
-                            justify-content: space-between;
-                            li {
-                                width: 265px;
-                                height: 360px;
-                                margin-right: 1px;
-                                .img {
-                                    width: 265px;
-                                    height: 265px;
-                                    text-align: center;
-                                    margin-bottom: 26px;
-                                    background-color: #f4f4f4;
-                                    img {
-                                        vertical-align: middle;
-                                    }
-                                }
-                                .news {
-                                    height: 70px;
-                                    width: 265px;
-                                    display: flex;
-                                    flex-direction: column;
-                                    justify-content: space-between;
-                                    align-items: center;
-                                    a {
-                                        text-align: center;
-                                        width: 162px;
-                                        color: #333333;
-                                        font-weight: 700;
-                                    }
-                                    span {
-                                        color: #d4282d;
-                                    }
-                                }
-                            }
-                            li:hover {
-                                background-color: rgb(244, 240, 234);
-                                box-shadow: 6px -4px 5px -7px #000;
-                            }
-                            li:hover .little {
-                                display: none;
-                            }
-                            li:hover .xiashow {
-                                display: block;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    .changtoyellow {
-        color: rgb(180, 160, 120);
-    }
-    .propular {
-        height: 738px;
-        width: 100%;
-        background-color: #f4f0ea;
-        .pro_Goods {
-            @extend .concent;
-            .pro_top {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                .top_left {
-                    width: 340px;
-                    height: 108px;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    a {
-                        color: #000;
-                        font-weight: 700;
-                        font-size: 26px;
-                        margin-top: 22px;
-                    }
-                    a:hover {
-                        @extend .changtoyellow;
-                    }
-                    .pro_tab {
-                        width: 195px;
-                        display: flex;
-                        justify-content: space-between;
-                        .pro_tab_show {
-                            border-bottom: 2px solid #b4a078;
-                            color: #b4a078;
-                        }
-                        span {
-                            margin-top: 30px;
-                            box-sizing: border-box;
-                            padding: 6px 7px;
-                            font-size: 12px;
-                            color: #333333;
-                            font-weight: 400;
-                            cursor: pointer;
-                        }
-                        span:hover {
-                            padding-bottom: 6px;
-                            padding-top: 6px;
-                            // border-bottom: 2px solid #b4a078;
-                            color: #b4a078;
-                        }
-                    }
-                }
-                .top_right {
-                    margin-top: 34px;
-                    a {
-                        font-size: 13px;
-                        color: #000;
-                    }
-                    a:hover {
-                        @extend .changtoyellow;
-                    }
-                }
-            }
-        }
-        .pro_center {
-            @extend .concent;
-            display: flex;
-            justify-content: space-between;
-            height: 570px;
-            // @keyframes go {
-            //     0% {}
-            //     100% {
-            //         transform: scale(1.1);
-            //     }
-            // }
-            display: none;
-            s {
-                color: #999999;
-            }
-            .goods_left {
-                width: 390px;
-                height: 570px;
-                background-color: #fff;
-                cursor: pointer;
-                .img {
-                    width: 100%;
-                    height: 400px;
-                    border-bottom: 1px solid #f4f0ea;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-                img {
-                    transition: transform 3s;
-                }
-                .yanxuan_news {
-                    height: 53px;
-                    padding: 53px 0 64px;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: space-between;
-                    h2 {
-                        font-size: 17px;
-                        color: #000000;
-                    }
-                    h2:hover {
-                        color: rgb(180, 160, 120);
-                    }
-                    span {
-                        color: #d4282d;
-                    }
-                }
-            }
-            .goods_left:hover img {
-                transform: scale(1.1);
-            }
-            .goods_right {
-                width: 690px;
-                height: 570px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                li {
-                    height: 280px;
-                    width: 223px;
-                    background-color: #fff;
-                    cursor: pointer;
-                    .img {
-                        width: 100%;
-                        height: 180px;
-                        border-bottom: 1px solid #f4f0ea;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        img {
-                            transition: transform 3s;
-                        }
-                    }
-                    .li_news {
-                        padding-top: 33px;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        line-height: 19px;
-                        width: 100%;
-                        height: 63px;
-                        h2 {
-                            width: 140px;
-                            text-align: center;
-                            font-size: 13px;
-                        }
-                        span {
-                            margin-top: 5px;
-                            color: #d4282d;
-                            font-size: 13px;
-                        }
-                    }
-                }
-                li:hover img {
-                    transform: scale(1.1);
-                }
-                .topGoods,
-                .bottomGoods {
-                    width: 690px;
-                    height: 280px;
-                    display: flex;
-                    justify-content: space-between;
-                }
-            }
-            h2:hover {
-                color: rgb(180, 160, 120);
-            }
-        }
-        .pro_center_show {
-            display: flex;
-        }
-    }
-    .time {
-        width: 100%;
-        height: 595px;
-        background: #fff;
-        .time_goods {
-            @extend .concent;
-            height: 595px;
-            .time_top {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                .top_left {
-                    width: 265px;
-                    height: 78px;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    a {
-                        color: #000;
-                        font-weight: 700;
-                        font-size: 26px;
-                        margin-top: 22px;
-                    }
-                    a:hover {
-                        @extend .changtoyellow;
-                    }
-                }
-                .top_right {
-                    margin-top: 34px;
-                    a {
-                        font-size: 13px;
-                        color: #000;
-                    }
-                    a:hover {
-                        @extend .changtoyellow;
-                    }
-                }
-            }
-            .time_center {
-                height: 429px;
-                @extend .concent;
-                display: flex;
-                justify-content: space-between;
-                .time_goods_left {
-                    cursor: pointer;
-                    width: 224px;
-                    height: 221px;
-                    padding: 66px 0 142px;
-                    display: flex;
-                    align-items: center;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    background: url(../img/time_shop/left_goods.png) no-repeat;
-                    .time_activity {
-                        height: 141px;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: space-between;
-                        align-items: center;
-                        .time_place {
-                            width: 85px;
-                            height: 30px;
-                            font-size: 26px;
-                            color: #615548;
-                            span {
-                                display: inline-block;
-                                text-align: center;
-                                line-height: 30px;
-                                width: 30px;
-                                height: 30px;
-                                font-size: 26px;
-                            }
-                        }
-                        i {
-                            width: 20px;
-                            height: 2px;
-                            background-color: #615548;
-                        }
-                        .time_remand {
-                            width: 134px;
-                            height: 78px;
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: space-between;
-                            align-items: center;
-                            p {
-                                font-size: 18px;
-                                color: #615548;
-                            }
-                            .Time {
-                                width: 134px;
-                                height: 40px;
-                                display: flex;
-                                justify-content: space-between;
-                                align-items: center;
-                                font-size: 16px;
-                                color: #615548;
-                                span {
-                                    width: 40px;
-                                    height: 40px;
-                                    color: #fff;
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                    background-color: #615548;
-                                    border-radius: 4px;
-                                }
-                            }
-                        }
-                    }
-                    .time_join {
-                        width: 110px;
-                        height: 30px;
-                        color: #fff;
-                        font-size: 12px;
-                        text-align: center;
-                        line-height: 30px;
-                        background-color: #a7936e;
-                        border-radius: 15px;
-                        cursor: pointer;
-                    }
-                }
-                .time_goods_right {
-                    width: 868px;
-                    height: 430px;
-                    border-top: 1px solid #f0ece4;
-                    li {
-                        float: left;
-                        width: 432px;
-                        height: 212px;
-                        border-right: 1px solid #f0ece4;
-                        border-bottom: 1px solid #f0ece4;
-                        a {
-                            width: 432px;
-                            height: 212px;
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            .img {
-                                width: 176px;
-                                height: 212px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                img {
-                                    transition: transform 3s;
-                                }
-                            }
-                            .right_news {
-                                width: 257px;
-                                height: 212px;
-                                margin-top: 20px;
-                                h4 {
-                                    font-size: 15px;
-                                    color: #333333;
-                                }
-                                p {
-                                    margin-top: 10px;
-                                    font-size: 12px;
-                                    color: #a59999;
-                                }
-                                .little {
-                                    margin-top: 15px;
-                                    color: #a59999;
-                                    font-size: 12px;
-                                    span {
-                                        display: inline-block;
-                                        width: 150px;
-                                        height: 8px;
-                                        border: solid 1px #f2cecd;
-                                        border-radius: 4px;
-                                        margin-right: 10px;
-                                    }
-                                }
-                                .time_price {
-                                    width: 150px;
-                                    height: 20px;
-                                    p {
-                                        color: #be4141;
-                                        span {
-                                            color: #c44141;
-                                            font-size: 16px;
-                                            font-weight: 700;
-                                        }
-                                        s {
-                                            color: #9999a5;
-                                            margin-left: 20px;
-                                        }
-                                    }
-                                }
-                                .news_btn {
-                                    margin-top: 23px;
-                                    width: 116px;
-                                    height: 29px;
-                                    background-color: #fff3f3;
-                                    border-radius: 4px;
-                                    border: 1px solid #d25a5a;
-                                    color: #d25a5a;
-                                }
-                                .news_btn:hover {
-                                    background-color: rgb(190, 65, 65);
-                                    color: #fff;
-                                }
-                            }
-                        }
-                    }
-                    li:hover img {
-                        transform: scale(1.1);
-                    }
-                }
-            }
-        }
     }
 }
 
