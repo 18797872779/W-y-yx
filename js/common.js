@@ -138,7 +138,35 @@ $('.head').load('header.html', function() { //因为jq引入样式是异步程�
         // new_nav_header.style.top = '0px'
     xiding_nav_news.appendChild(new_nav_header);
 
-    //滚动事件
+
+    //点击li跳转页面到列表页
+    window.onload = function() {
+
+
+            var lis = document.querySelectorAll('.nav_header li')
+                // for (var i = 0; i < lis.length; i++) {
+                // 
+                // var _this = this;
+
+
+
+
+            // var _this = this;
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].index = i;
+                $('.nav_header').on('click', 'li', function() {
+                    open('./goodslist.html')
+
+                    console.log(this.index - 13);
+                    localStorage.setItem('i', this.index - 13)
+
+                })
+            }
+            // localStorage.setItem('i',)
+
+
+        }
+        //滚动事件
     window.onscroll = function() {
         var stop = document.body.scrollTop || document.documentElement.scrollTop;
         if (stop >= 120) {

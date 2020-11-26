@@ -172,8 +172,12 @@ body {
                                 margin-top: 0;
                                 font-size: 12px;
                                 color: #333333;
+                                font-weight: 600;
                                 width: 165px;
                                 line-height: 21px;
+                            }
+                            p:hover {
+                                color: rgb(180, 160, 120);
                             }
                             span {
                                 font-size: 12px;

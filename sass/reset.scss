@@ -53,7 +53,9 @@
  }
  
  input,
- button {
+ button,
+ section,
+ option {
      /* 清除输入框获取焦点默认的框 */
      outline: none;
  }

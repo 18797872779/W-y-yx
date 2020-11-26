@@ -76,24 +76,24 @@ $(function() { //ready方法
             // $('.nav_header').append(goodStr)
 
             for (var i = 0; i < json.data.cateList.length; i++) { //循环获取到li
-                console.log(json.data.cateList)
-                console.log(999999)
+                // console.log(json.data.cateList)
+                // console.log(999999)
                 var goodstr4 = '';
                 $.each(json.data.cateList[i].subCateGroupList, function(index, item) { //循环获取dl
-                    // console.log(item.categoryList);
-                    var goodstr5 = '';
-                    $.each(item.categoryList, function(index1, item1) { //循环某一个dl里面的所有dd
-                            goodstr5 += `<dd><a href="#"><img src="${item1.bannerUrl}">${item1.name}</a></dd>` //将dd叠加起来
-                                // console.log(goodstr2);
-                        })
-                        // $.each(json.data.cateList[0].subCateGroupList.categoryList, function(index1, item1) {
-                        //     console.log(item1);
-                        // })
-                        // console.log(goodstr4[index]);
-                    goodstr4 += `<dl><dt>${item.name}</dt>${goodstr5}</dl>` //将每一个dd插入对应dl后将这个li里面的dl叠加起来
+                        // console.log(item.categoryList);
+                        var goodstr5 = '';
+                        $.each(item.categoryList, function(index1, item1) { //循环某一个dl里面的所有dd
+                                goodstr5 += `<dd><a href="#"><img src="${item1.bannerUrl}">${item1.name}</a></dd>` //将dd叠加起来
+                                    // console.log(goodstr2);
+                            })
+                            // $.each(json.data.cateList[0].subCateGroupList.categoryList, function(index1, item1) {
+                            //     console.log(item1);
+                            // })
+                            // console.log(goodstr4[index]);
+                        goodstr4 += `<dl><dt>${item.name}</dt>${goodstr5}</dl>` //将每一个dd插入对应dl后将这个li里面的dl叠加起来
 
-                })
-                console.log(goodstr4);
+                    })
+                    // console.log(goodstr4);
                 goodStr3[i] = `<li><a href="#"> ${json.data.cateList[i].name }</a><div class="nav_xia">${goodstr4}</div></li>`; //将所有对应好的叠加好的dl加入对应的div中
 
 
@@ -117,8 +117,20 @@ $(function() { //ready方法
                 <li class="nav_remove3">
                     <a href="#">众筹</a>
                 </li> `)
+                //     // 每一个li点击都可以跳转到商品列表页
+                // for (var i = 0; i < nav_lis.length; i++) {
+
+            //     console.log(nav_lis[i]);
+            // }
         }
     })
+
+    // // 每一个li点击都可以跳转到商品列表页
+    // for (var i = 0; i < nav_lis.length; i++) {
+
+    //     console.log(nav_lis[i]);
+    // }
+
 })
 
 
@@ -135,6 +147,45 @@ var xiding_nav = document.querySelector('.xiding_nav')
     // new_nav_header.style.zIndex = '999'
     // new_nav_header.style.top = '0px'
 xiding_nav_news.appendChild(new_nav_header);
+
+//点击li跳转页面到列表页
+
+
+window.onload = function() {
+
+
+        var lis = document.querySelectorAll('.nav_header li')
+            // for (var i = 0; i < lis.length; i++) {
+            // 
+            // var _this = this;
+
+
+
+
+        var _this = this;
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].index = i;
+            $('.nav_header').on('click', 'li', function() {
+                open('./goodslist.html')
+
+                console.log(this.index - 13);
+                localStorage.setItem('i', this.index - 13)
+
+            })
+        }
+        // localStorage.setItem('i',)
+
+
+    }
+    // nav_header.onclick = function(eve) {
+    //     var e = eve || event;
+    //     var target = e.target || e.srcElement;
+    //     if (target.nodeName.toLowerCase() === "li" || target.nodeName.toLowerCase() === "a") {
+    //         console.log(target);
+    //     }
+    // }
+
+
 
 //滚动事件
 window.onscroll = function() {
@@ -289,7 +340,7 @@ var time_sers = document.querySelector('.time_remand .Time .sers')
 var time_over = document.querySelector('.time_join')
     //商品活动倒计时
     // 结束时间
-var endDate = new Date("2020/11/25 22:00:00");
+var endDate = new Date("2020/11/25 23:23:00");
 // 当前时间\
 var hour = endDate.getHours();
 Time_goods.innerHTML = hour;
