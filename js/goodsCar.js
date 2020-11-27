@@ -4,7 +4,7 @@ $(function() {
     if (localStorage.getItem('goods')) {
         var goodArr = JSON.parse(localStorage.getItem('goods'));
         $.ajax({ //先获取后端所有商品信息
-                url: './data/goods.json',
+                url: '../data/goods.json',
                 type: 'get',
                 dataType: 'json',
                 success: function(json) {
@@ -12,24 +12,43 @@ $(function() {
                     $.each(goodArr, function(index, item) {
                         $.each(json, function(ind, ite) {
                             if (item.code === ite.code) { //把所有商品与本地存储通过遍历比较，并存入页面
-                                domStr += ` <li>
-                            <img src="${ite.imgurl}" alt="">
-                            <h3>${ite.title}</h3>
-                            <p>${ite.price}</p>
-                            <span num="${item.num}" code="${ite.code}"><button class="left">&lt;</button>${item.num}<button class="right">&gt;</button></span>
-                            <em code="${ite.code}">删除</em>
-                          </li>`
+                                domStr += `<li><input type="checkbox" name="" id="" class="one">
+                                <div class="img"><img src="${ite.imgurl}" alt=""></div>
+                                <div class="Car_good_news">
+                                    <h4>${ite.title}</h4>
+                                    <p>${ite.news}</p>
+                                </div>
+                                <span>${ite.price}</span>
+                                <div class="change_count">
+                                    <div class="count" code="${ite.code}"><button class="minus">-</button><i>${item.num}</i><button class="add">+</button></div>
+                                </div>
+                                <i class="allprice"></i>
+                                <h5>删除</h5>
+                            </li>`
                             }
 
                         })
                     })
-                    $('.list').html(domStr)
+                    $('.Car_good').html(domStr)
+                    var allprice = document.querySelectorAll('.allprice');
+                    var lis = document.querySelectorAll('.Car_good li')
+                    var is = document.querySelectorAll('.count i')
+                    var span_price = document.querySelectorAll('.Car_good li span')
+                    var span_str = '';
+
+                    for (var i = 0; i < lis.length; i++) {
+                        span_str = span_price[i].innerHTML;
+                        var new_span_str = span_str.slice(1);
+                        // console.log(new_span_str);
+                        allprice[i].innerHTML = '￥' + Number(new_span_str) * Number(is[i].innerHTML);
+                        // console.log(allprice[i].innerHTML);
+                    }
                 }
             })
             // 点击删除按钮
             // 因为删除按钮是动态的，所以需要事件委托
             // 移除商品
-        $('.list').on('click', 'li em', function() {
+        $('.Car_good').on('click', 'li h5', function() {
             // 删除对应em的li
             $(this).parent().remove()
                 // 删除对应本地数据
@@ -50,14 +69,27 @@ $(function() {
                 localStorage.removeItem('goods')
                 var domStr = ` <li style="font-size:19px;text-align:center;margin-top:20px;">购物车里没有数据！！</li>`
 
-                $('.list').html(domStr)
+                $('.Car_good').html(domStr)
             }
             alert('商品移出购物车成功！')
         })
-        $('.list').on('click', 'li span .left', function() {
+
+        $('.Car_good').on('click', 'li .count .minus', function() {
             // var num = $(this).parent().attr('num');
             var code = $(this).parent().attr('code');
             var _this = this
+            var allprice = document.querySelectorAll('.allprice');
+            var lis = document.querySelectorAll('.Car_good li')
+            var is = document.querySelectorAll('.count i')
+            var span_price = document.querySelectorAll('.Car_good li span')
+            var span_str = '';
+            for (var i = 0; i < lis.length; i++) {
+                span_str = span_price[i].innerHTML;
+                var new_span_str = span_str.slice(1);
+                console.log(new_span_str);
+                allprice[i].innerHTML = '￥' + Number(new_span_str) * (Number(is[i].innerHTML) + 1);
+                console.log(allprice[i].innerHTML);
+            }
             $.each(goodArr, function(index, item) {
                     if (item.code === code) {
                         item.num--;
@@ -65,7 +97,7 @@ $(function() {
                             item.num = 1;
                             alert('商品数量不能少于一个')
                         }
-                        $(_this).parent().html('<button class="left">&lt;</button>' + item.num + '<button class="right">&gt;</button>')
+                        $(_this).parent().html('<button class="minus">-</button><i>' + item.num + '</i><button class="add">+</button>')
                         return false;
                     }
                 })
@@ -73,28 +105,42 @@ $(function() {
                 // localStorage.setItem()
             localStorage.setItem('goods', JSON.stringify(goodArr))
         })
-        $('.list').on('click', 'li span .right', function() {
+        $('.Car_good').on('click', 'li .count .add', function() {
             // var num = $(this).parent().attr('num');
             var code = $(this).parent().attr('code');
             var _this = this
+            var allprice = document.querySelectorAll('.allprice');
+            var lis = document.querySelectorAll('.Car_good li')
+            var is = document.querySelectorAll('.count i')
+            var span_price = document.querySelectorAll('.Car_good li span')
+            var span_str = '';
+            for (var i = 0; i < lis.length; i++) {
+                span_str = span_price[i].innerHTML;
+                var new_span_str = span_str.slice(1);
+                // console.log(new_span_str);
+                allprice[i].innerHTML = '￥' + Number(new_span_str) * (Number(is[i].innerHTML) + 1);
+                // console.log(allprice[i].innerHTML);
+            }
             $.each(goodArr, function(index, item) {
                     if (item.code === code) {
                         item.num++;
-                        $(_this).parent().html('<button class="left">&lt;</button>' + item.num + '<button class="right">&gt;</button>')
+                        $(_this).parent().html('<button class="minus">-</button><i>' + item.num + '</i><button class="add">+</button>')
                         return false;
                     }
                 })
                 // console.log(goodArr);
                 // localStorage.setItem()
-            localStorage.setItem('goods', JSON.stringify(goodArr))
+            localStorage.setItem('goods', JSON.stringify(goodArr));
         })
 
     } else {
         // 当购物车本来就没有商品信息
         var domStr = ` <li style="font-size:19px;text-align:center;margin-top:20px;">购物车里没有数据！！</li>`
 
-        $('.list').html(domStr)
+        $('.list').html(domStr);
     }
+
+
 
 
 

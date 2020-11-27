@@ -159,6 +159,10 @@
             }
             h5 {
                 margin-left: 50px;
+                cursor: pointer;
+            }
+            h5:hover {
+                color: red;
             }
         }
     }
@@ -206,7 +210,7 @@
             margin-left: 32px;
             cursor: pointer;
             width: 140px;
-            height: 691px;
+            height: 69px;
             color: #fff;
             text-align: center;
             line-height: 70px;

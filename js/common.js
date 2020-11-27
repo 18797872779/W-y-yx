@@ -64,24 +64,24 @@ $('.head').load('header.html', function() { //因为jq引入样式是异步程�
                 // $('.nav_header').append(goodStr)
 
                 for (var i = 0; i < json.data.cateList.length; i++) {
-                    console.log(json.data.cateList)
-                    console.log(999999)
+                    // console.log(json.data.cateList)
+                    // console.log(999999)
                     var goodstr4 = '';
                     $.each(json.data.cateList[i].subCateGroupList, function(index, item) {
-                        // console.log(item.categoryList);
-                        var goodstr5 = '';
-                        $.each(item.categoryList, function(index1, item1) {
-                                goodstr5 += `<dd><a href="#"><img src="${item1.bannerUrl}">${item1.name}</a></dd>`
-                                    // console.log(goodstr2);
-                            })
-                            // $.each(json.data.cateList[0].subCateGroupList.categoryList, function(index1, item1) {
-                            //     console.log(item1);
-                            // })
-                            // console.log(goodstr4[index]);
-                        goodstr4 += `<dl><dt>${item.name}</dt>${goodstr5}</dl>`
+                            // console.log(item.categoryList);
+                            var goodstr5 = '';
+                            $.each(item.categoryList, function(index1, item1) {
+                                    goodstr5 += `<dd><a href="#"><img src="${item1.bannerUrl}">${item1.name}</a></dd>`
+                                        // console.log(goodstr2);
+                                })
+                                // $.each(json.data.cateList[0].subCateGroupList.categoryList, function(index1, item1) {
+                                //     console.log(item1);
+                                // })
+                                // console.log(goodstr4[index]);
+                            goodstr4 += `<dl><dt>${item.name}</dt>${goodstr5}</dl>`
 
-                    })
-                    console.log(goodstr4);
+                        })
+                        // console.log(goodstr4);
                     goodStr3[i] = `<li><a href="#"> ${json.data.cateList[i].name }</a><div class="nav_xia">${goodstr4}</div></li>`;
 
 
