@@ -94,6 +94,7 @@ add.onclick = function() { //商品添加数量
     // console.log(inTxt);
     i.innerHTML = inTxt;
     localStorage.setItem('num', i.innerText) //将数据存储到后台
+
 }
 minus.onclick = function() { //商品减少数量
     var inTxt = Number(i.innerText);
@@ -101,15 +102,27 @@ minus.onclick = function() { //商品减少数量
     // console.log(inTxt);
     i.innerHTML = inTxt;
     localStorage.setItem('num', i.innerText)
+
 }
 i.innerHTML = localStorage.getItem('num')
     // window.onclick=function(){
-
+if (!localStorage.getItem('num')) { //如果本地存储没有数据就显示数量一个
+    i.innerHTML = 1;
+}
 // }
 // console.log(i.innerHTML);
 
 //点击购物车按钮
 var addCar = document.querySelector('.addCar');
 addCar.onclick = function() {
+    //点击这个按钮将这个商品信息存入本地存储
+    if (localStorage.getItem('goods')) { //如果有数据
+        var goodArr = JSON.parse(localStorage.getItem('goods')) //将本地数据转换为对象给goodArr
+        goodArr.push('{ "code": "abc11", "num": 11 }') //直接存储死了数据
+    } else {
+        var goodArr = [{ "code": "abc11", "num": 11 }]; //没有数据给个空值不是没有
+    }
+    localStorage.setItem('goods', JSON.stringify(goodArr))
+
     open('./goodCar.html')
 }

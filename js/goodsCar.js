@@ -23,7 +23,7 @@ $(function() {
                                     <div class="count" code="${ite.code}"><button class="minus">-</button><i>${item.num}</i><button class="add">+</button></div>
                                 </div>
                                 <i class="allprice"></i>
-                                <h5>删除</h5>
+                                <h5 code="${item.code}">删除</h5>
                             </li>`
                             }
 
@@ -83,6 +83,7 @@ $(function() {
             var is = document.querySelectorAll('.count i')
             var span_price = document.querySelectorAll('.Car_good li span')
             var span_str = '';
+            // console.log($(this).nex().innerText);
             for (var i = 0; i < lis.length; i++) {
                 span_str = span_price[i].innerHTML;
                 var new_span_str = span_str.slice(1);
@@ -137,7 +138,7 @@ $(function() {
         // 当购物车本来就没有商品信息
         var domStr = ` <li style="font-size:19px;text-align:center;margin-top:20px;">购物车里没有数据！！</li>`
 
-        $('.list').html(domStr);
+        $('.Car_good').html(domStr);
     }
 
 

@@ -43,6 +43,8 @@ function getYzm(num) { //随机生成num位验证码
         }
     }
     console.log(str.join(""));
+    var Newstr = str.join("");
+    return Newstr;
 }
 
 
